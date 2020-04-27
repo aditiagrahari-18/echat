@@ -10,6 +10,27 @@
   </head>
 
   <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+    <%= link_to "Echat", '#', id: "logo" %>
+    <nav>
+    	<ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+    <% if user_signed_in? %>
+            <li><%= link_to "Register", '#'  %></li>
+            <li><%= link_to "Settings", edit_user_registration_path(current_user)  %></li>
+            <li>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            </li>
+      <% else %>
+            <li><%= link_to "Log in", new_user_session_path %></li>
+      <% end %>
+    </ul>
+    </nav>
+    </div>
+    </header>
+    <div class="container">
     <%= yield %>
+    </div>
   </body>
 </html>
