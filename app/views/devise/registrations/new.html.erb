@@ -18,13 +18,14 @@
 
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'%>
-  </br>
-
-      <%= f.submit "Sign up", class: "btn btn-primary" %>
-
-      <% end %>
-</br>
-<%= render "devise/shared/links" %>
+      </br>
+      <%=f.check_box :terms_and_conditions %> I agree to the <span style="color:#52c0f7;"> Terms and conditions</span>
+      </br>
+      </br>
+      <%= f.submit "Sign up", class: "btn btn-primary" %>   <%= render "devise/shared/links" %>
+    <% end %>
+      </br>
+      <%# render "devise/shared/links" %>
     </div>
   </aside>
 </div>
