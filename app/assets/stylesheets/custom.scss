@@ -2,6 +2,33 @@
 @import "bootstrap";
 
 body {
-  // background-image: image();
-  padding-top: 60px;
+ padding-top: 60px;
+
+ // background: url(5.jpeg);
+ // background-repeat: no-repeat;
+}
+#logo {
+float: left;
+margin-right: 10px;
+font-size: 1.7em;
+color: #fff;
+text-transform: uppercase;
+letter-spacing: -1px;
+padding-top: 9px;
+font-weight: bold;
+}
+#logo:hover {
+color:black;
+text-decoration: none;
+}
+#content-box{
+  margin-top:8%;
+  margin-bottom:5%;
+  //background: url(photo.jpeg);
+  // background-color: red;
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
 }

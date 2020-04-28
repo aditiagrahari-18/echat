@@ -1,0 +1,18 @@
+<header class="navbar navbar-fixed-top navbar-inverse" style="background-color:green">
+  <div class="container">
+  <%= link_to "E-chat", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
+        <% if user_signed_in? %>
+          <li><%= link_to "Register", '#',style:"color:white" %></li>
+          <li><%= link_to "Settings", edit_user_registration_path(current_user), style:"color:white"  %></li>
+          <li>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, style:"color:white" %>
+          </li>
+        <% else %>
+          <li><%= link_to "Log in", new_user_session_path, style:"color:white" %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
