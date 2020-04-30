@@ -6,13 +6,11 @@
             <div class = "col-md-2">
               <h1>Welcome</h1>
               <p>Find your friend</p>
-              <%= image_tag(current_user.avatar.url, width: "200",height: "200")%>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </br>
   <% else %>
       <h2>E-chat is a platform of connect to your friends and family.</h2>
@@ -21,4 +19,5 @@
       <br>
         <%= link_to "Create Account", new_user_registration_path, class: "btn  btn-primary", id: "btnsignup" %>
       </p>
+
 <% end %>

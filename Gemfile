@@ -7,6 +7,10 @@ ruby '2.6.3'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 gem 'devise'
 gem 'bootstrap-sass', '3.4.1'
+gem 'will_paginate', '3.1.8'
+gem 'carrierwave', '~> 2.1'
+gem 'jquery-rails'
+gem 'bootsnap', '>= 1.4.2', require: false
 # Use sqlite3 as the database for Active Record
 
 # Use Puma as the app server

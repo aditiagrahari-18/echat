@@ -10,6 +10,7 @@
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 
+
         <%= f.label :username %>
         <%= f.text_field :username, class: 'form-control' %>
 
@@ -38,7 +39,10 @@
 
         <%= f.label :dob %><br />
         <%= f.text_field :dob, class: 'form-control', type: "date" %>
-</br>
+
+        </br>
+        <%= f.file_field :avatar, multiple: true %>
+        </br>
         <%= f.submit "Update", class: "btn btn-primary" %>
 
       <% end %>
