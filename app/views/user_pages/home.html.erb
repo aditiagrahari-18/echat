@@ -1,18 +1,11 @@
 <% if user_signed_in? %>
-    <div class="row">
-      <div class="col-md-9">
-        <div class = "container">
-          <div class ="row">
-            <div class = "col-md-2">
-              <h1>Welcome</h1>
-              <p>Find your friend</p>
-              <%= image_tag(current_user.avatar.url, width: "200",height: "200")%>
-            </div>
-          </div>
-        </div>
+    <div class ="row">
+      <div class = "col-md-12 center">
+        <h3>Welcome, <%= current_user.username %></h3>
+        <h4>Find your friend</h4>
+        <%= image_tag(current_user.avatar.url, width: "200",height: "200")%>
       </div>
     </div>
-
   </br>
   <% else %>
       <h2>E-chat is a platform of connect to your friends and family.</h2>

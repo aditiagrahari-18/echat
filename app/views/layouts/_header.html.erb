@@ -1,6 +1,15 @@
 <header class="navbar navbar-fixed-top navbar-inverse" style="background-color:green">
   <div class="container">
-  <%= link_to "E-chat", root_path, id: "logo" %>
+    <% if user_signed_in? %>
+    <nav>
+    <ul class="nav navbar-nav navbar-left collapse navbar-collapse" >
+      <li><%= image_tag(current_user.avatar.url, width: "50",height: "50", class:"profileimg") %></li>
+      <li><%= link_to current_user.username, root_path, id: "logo" %></li>
+    <% else %>
+      <li><%= link_to "E-chat", root_path, id: "logo" %></li>
+    <% end %>
+  </ul>
+</nav>
     <nav>
       <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
         <% if user_signed_in? %>
