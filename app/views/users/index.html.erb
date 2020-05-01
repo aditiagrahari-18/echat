@@ -13,7 +13,8 @@
          <div id="explore" class="container tab-pane active"><br>
            <% @users.each do |user| %>
              <%= image_tag(user.avatar.url, width: "50",height: "50", class:"profileimg") %>
-             <%=  user.username %>
+             <% user.first_name ||= user.username  %>
+               <%= "#{user.first_name} #{user.last_name}"%>
              <br/>
              <br/>
            <% end %>
