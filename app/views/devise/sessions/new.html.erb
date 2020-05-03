@@ -6,8 +6,8 @@
         <%# f.label :email %><br />
         <%= f.text_field :login, autofocus: true, autocomplete: "email", class: 'form-control', placeholder:"Username or email"  %>
 
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+        <%# f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder:"Password" %>
 
         <% if devise_mapping.rememberable? %>
           <%= f.label :remember_me, class: "checkbox inline" do %>

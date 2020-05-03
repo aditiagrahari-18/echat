@@ -4,7 +4,7 @@
         <% current_user.first_name ||= current_user.username  %>
         <h3>Welcome <%= "#{current_user.first_name} #{current_user.last_name}"  %> </h3>
         <h4>Find your friend</h4>
-        <%= image_tag(current_user.avatar.url, width: "200",height: "200")%>
+        <%= image_tag(current_user.avatar.url, width: "200", height: "200")%>
       </div>
     </div>
   </br>

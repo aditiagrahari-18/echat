@@ -13,6 +13,7 @@ class User < ApplicationRecord
     login = conditions.delete(:login)
     where(conditions).where(["lower(username) = :value OR lower(email) = :value", {value: login.strip.downcase}]).first
   end
-
-
+  # def name
+  #     first_name+ " " +last_name
+  #   end
 end
