@@ -1,0 +1,12 @@
+
+  <div id="follow_form">
+    <% if current_user.id == Invite.invited_by %>
+    <% if Invite.invited = true %>
+    <%= link_to "Invites", "#", class: "btn  btn-primary", id: "btnsignup" %>
+    <% end %>
+    <% else %>
+      <%= link_to "Invite", users_invites_path(invited_to: user.id), class: "btn  btn-primary", id: "btnsignup" %>
+    <% end %>
+  </div>
+
+   <%# link_to "Invite", users_invites_path(invited_to: user.id), class: "btn  btn-primary", id: "btnsignup" %>

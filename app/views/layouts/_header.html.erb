@@ -12,7 +12,7 @@
       </button>
     </div>
     <ul class="nav navbar-nav navbar-left collapse navbar-collapse" >
-      <li><%= image_tag(current_user.avatar.url, width: "50",height: "50", class:"profileimg") %></li>
+      <li><%= image_tag(current_user.avatar.url, width: "50 %",height: "50 %", class:"profileimg") %></li>
       <% current_user.first_name ||= current_user.username  %>
         <li><%= link_to "#{current_user.first_name} #{current_user.last_name}", root_path, id: "logo" %></li>
     <% else %>

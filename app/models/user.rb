@@ -6,7 +6,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   mount_uploader :avatar, AvatarUploader
-  # serialize :avatars, JSON
+
+  #has_many :invites, dependent: :destroy
+
+
 
   def self.find_for_database_authentication warden_conditions
     conditions = warden_conditions.dup
