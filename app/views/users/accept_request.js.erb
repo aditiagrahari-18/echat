@@ -1,0 +1,1 @@
+$("#request_buttons_<%= @invite.invited_by %>").html("<%= escape_javascript(render(partial: 'users/accept_reject_button', locals: {user_id: @invite.invited_by})) %>");

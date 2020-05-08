@@ -1,0 +1,8 @@
+<div class="col-xs-3 col-md-4" id="request_buttons_<%= user_id %>">
+    <% if Invite.find_by(status: "accepted", invited_by: user_id, invited_to: current_user.id) %>
+      <span class="btn btn-primary" >Friend</span>
+     <% else %>
+     <%= link_to "<button class='btn btn-primary' aria-hidden='true'>Accept</button>".html_safe,
+      users_accept_request_path(user_id: user_id),  method: :get, remote: true %>
+    <% end %>
+</div>
