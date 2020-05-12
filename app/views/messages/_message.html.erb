@@ -1,0 +1,10 @@
+<!-- <div class="row">
+  <div class="col-sm-6 col-md-6 col-lg-12" style="text-align:left;padding:20px;position:relative">
+      <%# render partial: 'chats', locals:{sender_id: current_user, reciever_id: user_id} %>
+  </div>
+</div> -->
+<%= form_with scope: :message, class:"chat_window", url: messages_create_path(sender_id: current_user, reciever_id: user_id), local: true do |form| %>
+    <%= form.text_area :msg_body, class: 'form-control' %>
+</br>
+    <%= form.submit "Sent", class: "btn btn-primary" %>
+<% end %>

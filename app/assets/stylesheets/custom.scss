@@ -49,6 +49,7 @@ text-decoration: none;
 .profileimg{
   border-radius: 100px;
   margin-left:10px;
+  margin-right:10px;
 
 }
 hr.hrline {
@@ -58,3 +59,58 @@ hr.hrline {
   margin-top:10px;
 
 }
+.chat_window{
+  position: fixed;
+  bottom: 100px;
+  display: block;
+  width:400px;
+}
+.userimg{
+  position: fixed;
+  bottom: 280px;
+  display: block;
+}
+.username{
+  margin-left: 40px;
+  position: fixed;
+  bottom: 230px;
+  display: block;
+}
+.useremail{
+  margin-left: 60px;
+  position: fixed;
+  bottom: 215px;
+  display: block;
+}
+.userdob{
+  margin-left: 60px;
+  position: fixed;
+  bottom: 190px;
+  display: block;
+}
+.chat_row{
+  height: 450px;
+}
+#header_user_profile{
+  // border-radius: 30px;
+  position: fixed;
+  top: 180px;
+  display: block;
+  height:50px;
+  width:30%;
+}
+.msglist{
+  height: 280px;
+  background: url(Blue_Pattern.jpg);
+  border-radius: 10px;
+  overflow-y: scroll;
+}
+.user.active {
+  background-color: #3283a8;
+  border-radius: 100px;
+  color: white;
+}
+
+// #message_msg_body{
+//   width:400px;
+// }

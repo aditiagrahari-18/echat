@@ -1,24 +1,35 @@
 <% if user_signed_in? %>
-  <div class ="row">
+  <div class ="row chat_row">
     <% if @friends.any?  %>
         <% @friends.each do |user| %>
            <div class="row">
-              <div class="col-xs-12 col-md-3 overflow-auto" id="div_frends_list">
-              <hr class="hrline">
-               <%= image_tag(user.avatar.url, width: "60",height: "60", class:"profileimg") %>
+              <div class="col-xs-12 col-md-3 overflow-auto user" id="div_frends_list">
+               <%= image_tag(user.avatar.url, width: "50",height: "50", class:"profileimg") %>
                <% user.first_name ||= user.username  %>
-               <%= link_to "#{user.first_name} #{user.last_name}", "#" , style:"margin-left:10px;font-size:18px;color:black" %>
-               <%# link_to "#{user.first_name} #{user.last_name}", "users_pages_friend_details_path(user_id: user.id)", style:"margin-left:10px;font-size:18px;color:black" %>
+               <%= "#{user.first_name} #{user.last_name}" %>
               </div>
-              <div class="col-xs-12 col-md-6 overflow-auto" id="div_frends_list">
+              <div class="col-xs-12 col-md-6 overflow-auto chat hidden" id="div_frends_list">
+                <div class="row" id="header_user_profile">
+                  <div class="col-xs-12 col-md-12 overflow-auto user" id="div_frends_list">
+                   <%= image_tag(user.avatar.url, width: "50",height: "50", class:"profileimg") %>
+                   <% user.first_name ||= user.username  %>
+                   <%= "#{user.first_name} #{user.last_name}" %>
+                  </div>
+                  <div class="col-xs-12 col-md-12 overflow-auto user msglist" id="div_frends_list">
+
+                  </div>
+                 </div>
+
+                <%= render partial: "messages/message", locals: {user_id: user.id, current_user: current_user.id}, style:"width:100%" %>
               </div>
-              <div class="col-xs-12 col-md-3 overflow-auto" id="div_frends_list">
-                <%= image_tag(user.avatar.url, width: "200", height: "200", class:"profileimg")%>
+              <div class="col-xs-12 col-md-3  profile hidden" id="div_frends_list">
+                <%= image_tag(user.avatar.url, width: "200", height: "200", class:"userimg profileimg")%>
                 <% user.first_name ||= user.username %>
-                <h3><%= "#{user.first_name} #{user.last_name}"%></h3>
-                <h5 class="center"><span class="glyphicon glyphicon-envelope"></span> <%= "#{user.email}"%></h5>
-                <h5 class="center"><span class="glyphicon glyphicon-candle"></span> <%= "#{user.dob}"%></h5>
+                <h3 class="username"><%= "#{user.first_name} #{user.last_name}"%></h3>
+                <h5 class="useremail"><span class="glyphicon glyphicon-envelope"></span> <%= "#{user.email}"%></h5>
+                <h5 class="userdob"><span class="glyphicon glyphicon-candle"></span> <%= "#{user.dob}"%></h5>
               </div>
+
            </div>
         <% end %>
         <% else %>
