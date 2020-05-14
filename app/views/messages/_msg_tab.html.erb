@@ -42,8 +42,11 @@
               <h3 class="username"><%= "#{user.first_name} #{user.last_name}"%></h3>
               <h5 class="useremail"><span class="glyphicon glyphicon-envelope"></span> <%= "#{user.email}"%></h5>
               <h5 class="userdob"><span class="glyphicon glyphicon-candle"></span> <%= "#{user.dob}"%></h5>
+              <h5 class="userarchive"><% if user.archived == false %>
+                <%= link_to '<button type="button" class="btn btn-md btn-default">Archiev Chat</button>'.html_safe, users_destroy_path(user_id: user.id), method: :delete, data: { confirm: "You sure?" }%>
+              <% end %>
+            </h5>
             </div>
-
          </div>
       <% end %>
       <% else %>

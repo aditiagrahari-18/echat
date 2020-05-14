@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'user_pages#home'
   get 'users/invites'
+  delete 'users/destroy'
   get 'users/accept_request'
 
 

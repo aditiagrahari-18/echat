@@ -24,14 +24,19 @@ class UsersController < ApplicationController
     @invite = Invite.find_by(invited_by: params[:user_id], invited_to: current_user.id)
     if @invite.update(status: "accepted")
       respond_to do |format|
-        format.html { redirect_to users_index_path }
-        format.js
+      format.html { redirect_to users_index_path }
+      format.js
       end
-
     else
         flash[:danger] = "Something went to wrong!"
         redirect_to users_index_path
     end
   end
+  def destroy
+    user = User.find_by(id: params[:user_id])
+    user.update(archived: true)
+    flash[:success] = "User Archieved"
+    redirect_to root_path
+end
 
 end
