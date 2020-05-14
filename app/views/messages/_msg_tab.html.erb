@@ -1,9 +1,59 @@
+<div class ="row chat_row">
+  <% if @friends.any?  %>
+      <% @friends.each do |user| %>
+         <div class="row" >
+            <div class="col-xs-12 col-md-3 div_frends_list overflow-auto user">
+             <%= image_tag(user.avatar.url, width: "50",height: "50", class:"profileimg") %>
+             <% user.first_name ||= user.username  %>
+             <%= "#{user.first_name} #{user.last_name}" %>
+            </div>
+            <div class="col-xs-12 col-md-6 div_frends_list overflow-auto chat hidden">
+              <div class="row" id="header_user_profile">
+                <div class="col-xs-12 col-md-12 div_frends_list overflow-auto" >
+                 <%= image_tag(user.avatar.url, width: "50",height: "50", class:"profileimg") %>
+                 <% user.first_name ||= user.username  %>
+                 <%= "#{user.first_name} #{user.last_name}" %>
+                </div>
+                <div class="col-xs-12 col-md-12 div_frends_list overflow-auto msglist" >
+                  <% @chatlist.where("sender_id =? or reciever_id =?", user.id, user.id).each do |msg| %>
+                    <div class="col-xs-12 col-md-12 margin-left">
+                      <% if msg.reciever_id == current_user.id && msg.sender_id == user.id && msg.msg_body != ""  %>
+                           <p class="msgboxreciever"><%=  "[ #{msg.created_at.strftime("%I:%M %p")}]"  %>
+                           <% user.first_name ||= user.username  %>
+                           <%= "#{msg.msg_body}" %></p>
+                      <% end %>
+                    </div>
+                  <div class="col-xs-12 col-md-12 margin-right">
+                    <% if msg.reciever_id == user.id && msg.sender_id == current_user.id && msg.msg_body != ""  %>
+                         <p class="msgboxsender"><%=  " [ #{msg.created_at.strftime("%I:%M %p")}]" %>
+                      <% current_user.first_name ||= current_user.username  %>
+                      <%= "#{msg.msg_body}" %></p>
+                    <% end %>
+                  </div>
+                  <% end %>
+                </div>
+                <%= render partial: "messages/message", locals: {user_id: user.id, current_user: current_user.id}, style:"width:100%" %>
 
-<div class="col-xs-12 col-md-3 overflow-auto" id="div_frends_list">
-  <%= image_tag(user.avatar.url, width: "200", height: "200", class:"profileimg")%>
-  <%= user.first_name ||= user.username %>
-  <h3><%= "#{user.first_name} #{user.last_name}"%></h3>
-  <h5 class="center"><span class="glyphicon glyphicon-envelope"></span> <%= "#{user.email}"%></h5>
-  <h5 class="center"><span class="glyphicon glyphicon-candle"></span> <%= "#{user.dob}"%></h5>
-</div>
-</div>
+               </div>
+              </div>
+            <div class="col-xs-12 col-md-3  profile hidden" id="div_frends_list">
+              <%= image_tag(user.avatar.url, width: "200", height: "200", class:"userimg profileimg")%>
+              <% user.first_name ||= user.username %>
+              <h3 class="username"><%= "#{user.first_name} #{user.last_name}"%></h3>
+              <h5 class="useremail"><span class="glyphicon glyphicon-envelope"></span> <%= "#{user.email}"%></h5>
+              <h5 class="userdob"><span class="glyphicon glyphicon-candle"></span> <%= "#{user.dob}"%></h5>
+            </div>
+
+         </div>
+      <% end %>
+      <% else %>
+        <div class = "col-md-12 center">
+          <% current_user.first_name ||= current_user.username  %>
+          <h2>You don't have any friend</h4>
+          <h3>Welcome <%= "#{current_user.first_name} #{current_user.last_name}"  %> </h3>
+          <h4>Find your friend</h4>
+          <%= image_tag(current_user.avatar.url, width: "200", height: "200")%>
+        </div>
+       <% end %>
+
+  </div>

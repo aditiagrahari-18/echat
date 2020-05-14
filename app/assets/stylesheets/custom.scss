@@ -55,19 +55,18 @@ text-decoration: none;
 hr.hrline {
   border-top: 1px solid black;
 }
-#div_frends_list{
+.div_frends_list{
   margin-top:10px;
-
 }
 .chat_window{
   position: fixed;
   bottom: 100px;
   display: block;
-  width:400px;
+  width:550px;
 }
 .userimg{
   position: fixed;
-  bottom: 280px;
+  bottom: 300px;
   display: block;
 }
 .username{
@@ -90,18 +89,21 @@ hr.hrline {
 }
 .chat_row{
   height: 450px;
+
 }
 #header_user_profile{
   // border-radius: 30px;
   position: fixed;
   top: 180px;
   display: block;
-  height:50px;
-  width:30%;
+  height:70px;
+  width:40%;
+  border-radius: 10px;
+  border:1px solid black;
 }
 .msglist{
   height: 280px;
-  background: url(Blue_Pattern.jpg);
+  border: 1px solid black;
   border-radius: 10px;
   overflow-y: scroll;
 }
@@ -110,7 +112,22 @@ hr.hrline {
   border-radius: 100px;
   color: white;
 }
+.msgboxreciever{
+  font-size: 17px;
+  padding: 8px;
+  text-align:justify;
+  background-color: green;
+  color: white;
+  border-radius:5px;
+  margin-right:20%;
 
-// #message_msg_body{
-//   width:400px;
-// }
+}
+.msgboxsender{
+  font-size: 17px;
+  text-align: justify;
+  padding: 8px;
+  background-color: blue;
+  color: white;
+  border-radius:5px;
+  margin-left: 20%;
+}

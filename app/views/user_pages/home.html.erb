@@ -1,54 +1,11 @@
 <% if user_signed_in? %>
-  <div class ="row chat_row">
-    <% if @friends.any?  %>
-        <% @friends.each do |user| %>
-           <div class="row">
-              <div class="col-xs-12 col-md-3 overflow-auto user" id="div_frends_list">
-               <%= image_tag(user.avatar.url, width: "50",height: "50", class:"profileimg") %>
-               <% user.first_name ||= user.username  %>
-               <%= "#{user.first_name} #{user.last_name}" %>
-              </div>
-              <div class="col-xs-12 col-md-6 overflow-auto chat hidden" id="div_frends_list">
-                <div class="row" id="header_user_profile">
-                  <div class="col-xs-12 col-md-12 overflow-auto user" id="div_frends_list">
-                   <%= image_tag(user.avatar.url, width: "50",height: "50", class:"profileimg") %>
-                   <% user.first_name ||= user.username  %>
-                   <%= "#{user.first_name} #{user.last_name}" %>
-                  </div>
-                  <div class="col-xs-12 col-md-12 overflow-auto user msglist" id="div_frends_list">
-
-                  </div>
-                 </div>
-
-                <%= render partial: "messages/message", locals: {user_id: user.id, current_user: current_user.id}, style:"width:100%" %>
-              </div>
-              <div class="col-xs-12 col-md-3  profile hidden" id="div_frends_list">
-                <%= image_tag(user.avatar.url, width: "200", height: "200", class:"userimg profileimg")%>
-                <% user.first_name ||= user.username %>
-                <h3 class="username"><%= "#{user.first_name} #{user.last_name}"%></h3>
-                <h5 class="useremail"><span class="glyphicon glyphicon-envelope"></span> <%= "#{user.email}"%></h5>
-                <h5 class="userdob"><span class="glyphicon glyphicon-candle"></span> <%= "#{user.dob}"%></h5>
-              </div>
-
-           </div>
-        <% end %>
-        <% else %>
-          <div class = "col-md-12 center">
-            <% current_user.first_name ||= current_user.username  %>
-            <h2>You don't have any friend</h4>
-            <h3>Welcome <%= "#{current_user.first_name} #{current_user.last_name}"  %> </h3>
-            <h4>Find your friend</h4>
-            <%= image_tag(current_user.avatar.url, width: "200", height: "200")%>
-          </div>
-         <% end %>
-
-    </div>
+  <%= render 'messages/msg_tab'%>
   </br>
   <% else %>
       <h2>E-chat is a platform of connect to your friends and family.</h2>
+      <br><br>
       <p>
-      <br>
-      <br>
         <%= link_to "Create Account", new_user_registration_path, class: "btn  btn-primary", id: "btnsignup" %>
+        <%= link_to "Sign in?", new_user_session_path, class: "btn  btn-primary", id: "btnsignup" %>
       </p>
 <% end %>

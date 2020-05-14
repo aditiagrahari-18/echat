@@ -20,8 +20,7 @@ import "bootstrap"
 $(document).on("click", ".user", function() {
   $(".user").removeClass("active");
   $(".chat, .profile").addClass("hidden");
-  $(this).addClass("active");
-  
+  $(this).addClass("active");  
   $(this).parent().find(".chat").removeClass("hidden");
   $(this).parent().find(".profile").removeClass("hidden");
 });
