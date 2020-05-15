@@ -23,6 +23,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <% if user_signed_in? %>
+        <li><%# link_to "Archived User", '#', style:"color:white" %></li>
           <li><%= link_to "Requests", users_index_path, style:"color:white" %></li>
           <li><%= link_to "Settings", edit_user_registration_path(current_user), style:"color:white"  %></li>
           <li>
