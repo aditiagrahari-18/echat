@@ -33,7 +33,6 @@
                   <% end %>
                 </div>
                 <%= render partial: "messages/message", locals: {user_id: user.id, current_user: current_user.id}, style:"width:100%" %>
-
                </div>
               </div>
             <div class="col-xs-12 col-md-3  profile hidden" id="div_frends_list">
@@ -44,11 +43,13 @@
               <h5 class="userdob"><span class="glyphicon glyphicon-candle"></span> <%= "#{user.dob}"%></h5>
               <h5 class="userarchive">
                 <% if user.archived == false %>
-                  <%= link_to '<button type="button" class="btn btn-md btn-default">Archiev?</button>'.html_safe, users_destroy_path(user_id: user.id), method: :delete, data: { confirm: "You sure?" }%>
+                  <%= link_to '<button type="button" class="btn btn-md btn-default">Archiev</button>'.html_safe, users_destroy_path(user_id: user.id), method: :delete, data: { confirm: "You sure?" }%>
                 <% end %>
+                  <%= link_to '<button type="button" class="btn btn-md btn-default">Block</button>'.html_safe, "#{}", method: :post, data: { confirm: "You sure?" }%>
               </h5>
             </div>
-         </div>      
+         </div>
+
       <% end %>
       <% else %>
         <div class = "col-md-12 center">

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'users/index'
   devise_for :users
   root 'user_pages#home'
+  post 'user_pages/block'
   get 'users/invites'
   delete 'users/destroy'
   get 'users/accept_request'
