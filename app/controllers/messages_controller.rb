@@ -1,30 +1,20 @@
 class MessagesController < ApplicationController
   def create
-    @user = User.where(id: params[:sender_id]).or(User.where(id: params[:reciever_id]))
-    if @user.where(archived: true)
-    @user.update(archived: false)
-    @message = Message.new(user_params)
-    @message.sender_id = params[:sender_id]
-    @message.reciever_id = params[:reciever_id]
+    @user = User.find_by(id: msg_params[:reciever_id])
+    @user.update(archived: false) if @user.archived
+    @message = Message.new(msg_params)
+    @message.sender_id = current_user.id
     @message.save
+    @chatlist = Message.where(sender_id:current_user).or(Message.where(reciever_id:current_user)).order(created_at: :ASC)
     respond_to do |format|
-    format.html { redirect_to root_path }
-    format.js
-    end
-  else
-    @message = Message.new(user_params)
-    @message.sender_id = params[:sender_id]
-    @message.reciever_id = params[:reciever_id]
-    @message.save
-      respond_to do |format|
-          format.html { redirect_to root_path }
-          format.js
-      end
+      format.html { redirect_to root_path }
+      format.js
     end
   end
 
   private
-  def user_params
-    params.require(:message).permit(:msg_body)
+  
+  def msg_params
+    params.require(:message).permit(:msg_body, :reciever_id)
   end
 end

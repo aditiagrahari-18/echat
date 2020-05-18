@@ -1,12 +1,10 @@
 <% @friend.each do |user| %>
- <div class="row">
+   <div class="row">
      <div class="col-xs-9 col-md-4">
        <%= image_tag(user.avatar.url, width: "50",height: "50", class:"profileimg") %>
        <% user.first_name ||= user.username  %>
          <%= "#{user.first_name} #{user.last_name}"%>
-       </div>
- </div>
+      </div>
+   </div>
    <br/>
  <% end %>
-
- 

@@ -3,7 +3,7 @@
     <div  id = "input_form">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <h3> SignUp </h3>
-      
+
       <%= render "devise/shared/error_messages", resource: resource %>
       <%= f.label :username %>
       <%= f.text_field :username, class: 'form-control' %>
@@ -29,8 +29,7 @@
       </br>
       <%= f.submit "Sign up", class: "btn btn-primary" %>   <%= render "devise/shared/links" %>
     <% end %>
-      </br>
-      <%# render "devise/shared/links" %>
+      </br>      
     </div>
   </aside>
 </div>

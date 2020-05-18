@@ -1,5 +1,7 @@
 <div id="msgform">
-<%= form_with scope: :message, class:"chat_window", url: messages_create_path(sender_id: current_user, reciever_id: user_id), remote: true do |form| %>
+<%= form_with scope: :message, class:"chat_window", url: messages_create_path, remote: true do |form| %>
+
+    <%= form.hidden_field :reciever_id, value: user_id %>
     <%= form.text_area :msg_body, class: 'form-control' %>
 </br>
     <%= form.submit "Sent", class: "btn btn-primary" %>

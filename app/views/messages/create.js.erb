@@ -1,0 +1,1 @@
+$("#divchatrow-<%= @user.id %>").html("<%= escape_javascript(render(partial: 'messages/chats', locals: {user: @user}) ) %>");

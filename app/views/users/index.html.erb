@@ -9,35 +9,34 @@
           <a class="nav-link" data-toggle="tab" href="#invites"><strong>Invites</strong></a>
         </li>
       </ul>
-       <div class="tab-content" id = "tabs">
-         <div id="explore" class="container tab-pane active"><br>
+      <div class="tab-content" id = "tabs">
+        <div id="explore" class="container tab-pane active"><br>
           <% @users.each do |user| %>
-           <div class="row">
-               <div class="col-xs-9 col-md-4">
-                 <%= image_tag(user.avatar.url, width: "50",height: "50", class:"profileimg") %>
-                 <% user.first_name ||= user.username  %>
-                   <%= "#{user.first_name} #{user.last_name}"%>
-                 </div>
-               <div class="col-xs-3 col-md-4">
-                 <%# link_to "Invite", users_invites_path(invited_to: user.id) %>
-               <%= link_to "Invite", users_invites_path(invited_to: user.id), class: "btn  btn-primary", id: "btnsignup" %>
+             <div class="row">
+              <div class="col-xs-9 col-md-4">
+                <%= image_tag(user.avatar.url, width: "50",height: "50", class:"profileimg") %>
+                <% user.first_name ||= user.username  %>
+                 <%= "#{user.first_name} #{user.last_name}"%>
+              </div>
+              <div class="col-xs-3 col-md-4">
+                <%= link_to "Invite", users_invites_path(invited_to: user.id), class: "btn  btn-primary", id: "btnsignup" %>
+              </div>
              </div>
-           </div>
              <br/>
            <% end %>
          </div>
          <div id="invites" class="container tab-pane"><br>
-             <% @invitedusers.each do |user| %>
-               <div class="row">
-                   <div class="col-xs-9 col-md-4">
-                     <%= image_tag(user.avatar.url, width: "50",height: "50", class:"profileimg") %>
-                     <% user.first_name ||= user.username  %>
-                       <%= "#{user.first_name} #{user.last_name} "%>
-                     </div>
-                      <%= render partial: 'accept_reject_button', locals:{user_id: user.id}%>
+          <% @invitedusers.each do |user| %>
+            <div class="row">
+              <div class="col-xs-9 col-md-4">
+                <%= image_tag(user.avatar.url, width: "50",height: "50", class:"profileimg") %>
+                  <% user.first_name ||= user.username  %>
+                    <%= "#{user.first_name} #{user.last_name} "%>
               </div>
-              <br/>
-            <% end %>
+              <%= render partial: 'accept_reject_button', locals:{user_id: user.id}%>
+            </div>
+            <br/>
+          <% end %>
          </div>
       </div>
     </div>

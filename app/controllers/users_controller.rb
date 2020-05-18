@@ -37,6 +37,12 @@ class UsersController < ApplicationController
     user.update(archived: true)
     flash[:success] = "User Archieved"
     redirect_to root_path
-end
+  end
+  def block
+    user = User.find_by(id: params[:user_id])
+    user.update(block: true)
+    flash[:success] = "User Blocked"
+    redirect_to root_path
+  end
 
 end

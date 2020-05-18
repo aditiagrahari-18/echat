@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
-  <%= render 'messages/msg_tab'%>
+  <%= render 'msg_tab'%>
   </br>
   <% else %>
-      <h2>E-chat is a platform of connect to your friends and family.</h2>
-      <br><br>
-      <p>
-        <%= link_to "Create Account", new_user_registration_path, class: "btn  btn-primary", id: "btnsignup" %>
-        <%= link_to "Sign in?", new_user_session_path, class: "btn  btn-primary", id: "btnsignup" %>
-      </p>
+    <h2>E-chat is a platform of connect to your friends and family.</h2>
+    <br><br>
+    <p>
+      <%= link_to "Create Account", new_user_registration_path, class: "btn  btn-primary", id: "btnsignup" %>
+      <%= link_to "Sign in?", new_user_session_path, class: "btn  btn-primary", id: "btnsignup" %>
+    </p>
 <% end %>
